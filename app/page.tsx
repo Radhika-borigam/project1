@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import ProjectsSection from "@/components/ProjectsSection";
 import WhatWeOffer from "@/components/WhatWeOffer";
 import WhyAreWeUnique from "@/components/WhyAreWeUnique";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <ProjectsSection />
       <WhatWeOffer />
       <WhyAreWeUnique />
+      <Footer/>
     </div>
   );
 }
