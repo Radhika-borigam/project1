@@ -49,16 +49,21 @@ const Navbar: React.FC = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-6 items-center">
-          <Link href="/" className="text-gray-300 hover:text-blue-400">
+        <div className="hidden md:flex space-x-12 items-center">
+          <Link href="/" className="text-gray-300 hover:text-blue-400 group">
             Home
+            <span className="block h-0.5 bg-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
           </Link>
-          <Link href="/features" className="text-gray-300 hover:text-blue-400">
+          <Link
+            href="/Features"
+            className="text-gray-300 hover:text-blue-400 group"
+          >
             Features
+            <span className="block h-0.5 bg-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
           </Link>
-          <div className="relative" ref={dropdownRef}>
+          <div className="relative group" ref={dropdownRef}>
             <button
-              className="text-gray-300 hover:text-blue-400 flex items-center"
+              className="text-gray-300 hover:text-blue-400 flex items-center group"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               Pages <span className="ml-1">&#x25BC;</span>
@@ -80,8 +85,9 @@ const Navbar: React.FC = () => {
               </div>
             )}
           </div>
-          <Link href="/support" className="text-gray-300 hover:text-blue-400">
+          <Link href="/support" className="text-gray-300 hover:text-blue-400 group">
             Support
+            <span className="block h-0.5 bg-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
           </Link>
         </div>
 
