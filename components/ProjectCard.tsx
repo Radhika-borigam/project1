@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { fadeIn } from "../utils/motion"; // Assuming you have motion utilities
-import { styles } from "./styles"; // Import the styles object
+import { useRef } from "react";
 
 const ProjectCard = ({
   index,
@@ -17,24 +16,56 @@ const ProjectCard = ({
   image: string;
   source_code_link: string;
 }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const card = cardRef.current;
+    if (card) {
+      const { left, top, width, height } = card.getBoundingClientRect();
+      const x = e.clientX - left - width / 2;
+      const y = e.clientY - top - height / 2;
+
+      card.style.transform = `rotateX(${y / 25}deg) rotateY(${x / 25}deg)`;
+    }
+  };
+
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    if (card) {
+      card.style.transform = "rotateX(0) rotateY(0)";
+    }
+  };
+
   return (
     <motion.div
-      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-      className={`${styles.padding} bg-tertiary rounded-2xl relative cursor-pointer`}
-      whileHover={{ scale: 1.05 }} // Enlarge the card on hover
+      ref={cardRef}
+      className="relative cursor-pointer group"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       transition={{ duration: 0.3 }}
     >
-      <div className="relative w-full h-[230px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img
-          src={image}
-          alt={name}
-          className="w-full h-full object-cover rounded-2xl"
-        />
+      <div
+        className="relative w-full h-[230px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+        style={{
+          background: "linear-gradient(to right, #ffffff, #001f4d)", // Thin white to dark blue gradient
+          padding: "2px", // Very thin border
+          borderRadius: "16px",
+        }}
+      >
+        <div
+          className="w-full h-full bg-black rounded-xl"
+          style={{
+            backgroundImage: `url(${image})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
+
         <div
           className="absolute inset-0 flex justify-end m-3 card-img_hover"
           onClick={() => window.open(source_code_link, "_blank")}
         >
-          <div className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer">
+          <div className="bg-gradient-to-r from-blue-500 to-purple-500 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer">
             <img
               src="/images/github.png"
               alt="GitHub"
@@ -43,16 +74,18 @@ const ProjectCard = ({
           </div>
         </div>
       </div>
-      <div className="mt-5">
-        <h3 className={`${styles.heroHeadText} text-black text-[24px]`}>
-          {name}
-        </h3>
-        {/* Updated description style */}
-        <p className={`mt-2 text-black text-[14px]`}>{description}</p>
+
+      <div className="mt-5 group-hover:scale-105 transition-transform">
+        <h3 className="text-white text-[24px] font-extrabold">{name}</h3>
+        <p className="mt-2 text-gray-400 text-[14px]">{description}</p>
       </div>
-      <div className="mt-4 flex flex-wrap gap-2">
+
+      <div className="mt-4 flex flex-wrap gap-2 text-yellow-500">
         {tags.map((tag) => (
-          <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
+          <p
+            key={`${name}-${tag.name}`}
+            className={`text-[14px] ${tag.color}`}
+          >
             #{tag.name}
           </p>
         ))}

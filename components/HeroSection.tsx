@@ -3,6 +3,7 @@
 import Image from "next/image"; // Next.js optimized image component
 import React, { FC } from "react";
 import { Typewriter } from "react-simple-typewriter";
+
 interface HeroSectionProps {
   title?: string; // Optional title prop
   subTitle?: string; // Optional subtitle prop
@@ -21,7 +22,7 @@ const HeroSection: FC<HeroSectionProps> = ({
       {/* Background Image */}
       <div className="absolute inset-x-0 bottom-0 h-full w-full">
         <Image
-          src="/ll.png"
+          src= "/ll.png"
           alt="Background"
           layout="fill"
           objectFit="cover"
@@ -38,39 +39,36 @@ const HeroSection: FC<HeroSectionProps> = ({
         {/* Gradient Heading */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500">
-          <Typewriter
+            <Typewriter
               words={[title]} // Pass the title
-              loop={true}
+              loop={1} // Only type once
               cursor
               cursorStyle="|"
-              typeSpeed={250} // Reduced speed
-              deleteSpeed={0} // Reduced speed
-              delaySpeed={2500} // Slower pause between loops
+              typeSpeed={100} // Adjust typing speed
+              deleteSpeed={0} // Prevent deletion
             />
           </span>
         </h1>
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mt-4 text-white">
-        <Typewriter
+          <Typewriter
             words={[subTitle]} // Pass the subtitle
-            loop={true}
+            loop={1} // Only type once
             cursor
             cursorStyle="|"
-            typeSpeed={150} // Reduced speed
-            deleteSpeed={100} // Reduced speed
-            delaySpeed={3000} // Slower pause between loops
+            typeSpeed={80} // Adjust typing speed
+            deleteSpeed={0} // Prevent deletion
           />
         </h2>
 
         {/* Subheading */}
         <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
-        <Typewriter
+          <Typewriter
             words={[description]} // Pass the description
-            loop={true}
+            loop={1} // Only type once
             cursor
             cursorStyle="|"
-            typeSpeed={150} // Reduced speed
-            deleteSpeed={100} // Reduced speed
-            delaySpeed={3500} // Slower pause between loops
+            typeSpeed={80} // Adjust typing speed
+            deleteSpeed={0} // Prevent deletion
           />
         </p>
 

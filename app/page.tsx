@@ -7,6 +7,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import WhatWeOffer from "@/components/WhatWeOffer";
 import WhyAreWeUnique from "@/components/WhyAreWeUnique";
 import Footer from "@/components/Footer";
+import CardsSection from "@/components/CardsSection";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
 
       {/* Projects Section */}
       <ProjectsSection />
+      <CardsSection/>
       <WhatWeOffer />
       <WhyAreWeUnique />
       <Footer/>

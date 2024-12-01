@@ -10,32 +10,29 @@ const ProjectsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(3);
 
-  // Update cards per page based on screen size
   useEffect(() => {
     const updateCardsPerPage = () => {
       const width = window.innerWidth;
       if (width < 768) {
-        setCardsPerPage(1); // Show 1 card on small screens
+        setCardsPerPage(1);
       } else if (width < 1024) {
-        setCardsPerPage(2); // Show 2 cards on medium screens
+        setCardsPerPage(2);
       } else {
-        setCardsPerPage(3); // Default to 3 cards on larger screens
+        setCardsPerPage(3);
       }
     };
 
-    updateCardsPerPage(); // Initial check
+    updateCardsPerPage();
     window.addEventListener("resize", updateCardsPerPage);
 
     return () => window.removeEventListener("resize", updateCardsPerPage);
   }, []);
 
-  // Calculate the indices of the visible cards
   const visibleProjects = projects.slice(
     currentIndex,
     currentIndex + cardsPerPage
   );
 
-  // Handlers for navigation
   const handlePrev = () => {
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
@@ -49,16 +46,19 @@ const ProjectsSection = () => {
   return (
     <div
       className="relative px-4 mt-20 bg-cover bg-center"
+      style={{
+        background: "radial-gradient(circle, #1e1e2e, #161622, #0c0c10)",
+        padding: "30px 0",
+      }}
     >
-        
       <motion.div variants={textVariant()}>
-        <h2 className="text-white font-black text-[30px]">Services</h2>
+        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 font-black text-[30px]">
+          Services
+        </h2>
       </motion.div>
 
       <div className="relative mt-10">
-        {/* Carousel Container */}
         <div className="flex justify-between items-center">
-          {/* Left Button */}
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
@@ -69,7 +69,6 @@ const ProjectsSection = () => {
             {"<"}
           </button>
 
-          {/* Cards */}
           <div className="flex justify-center gap-7 overflow-hidden w-full">
             {visibleProjects.map((project, index) => (
               <motion.div
@@ -84,7 +83,6 @@ const ProjectsSection = () => {
             ))}
           </div>
 
-          {/* Right Button */}
           <button
             onClick={handleNext}
             disabled={currentIndex + cardsPerPage >= projects.length}

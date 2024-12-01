@@ -21,6 +21,12 @@ const services = [
       "With just one click, deploy your applications swiftly and reliably.",
     icon: "⚡",
   },
+  {
+    title: "High Scalability",
+    description:
+      "Scale your applications easily and meet dynamic business demands.",
+    icon: "🚀",
+  },
 ];
 
 const WhatWeOffer: React.FC = () => {

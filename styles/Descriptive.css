@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .hero-section {
+    background-color: #121212;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .text-white {
+    color: #ffffff;
+  }
+  
+  .bg-dark {
+    background-color: #121212;
+  }
+  
+  .py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  .px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-4xl {
+    font-size: 2.25rem;
+  }
+  
+  .md\\:text-5xl {
+    font-size: 3rem;
+  }
+  
+  .text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .md\\:text-xl {
+    font-size: 1.25rem;
+  }
+  
+  .text-md {
+    font-size: 1rem;
+  }
+  
+  .md\\:text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .font-bold {
+    font-weight: bold;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .mb-8 {
+    margin-bottom: 2rem;
+  }
+  
