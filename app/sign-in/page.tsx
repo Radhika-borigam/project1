@@ -1,19 +1,18 @@
 'use client'
 
 import React, { useState } from "react"
+import Link from "next/link"
 import Image from "next/image"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 
-export default function Contact() {
-  const [name, setName] = useState("")
+export default function SignIn() {
   const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+  const [password, setPassword] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", { name, email, message })
-    // Here you would typically send the form data to your server
+    console.log("Signed In:", { email, password })
   }
 
   return (
@@ -36,27 +35,13 @@ export default function Contact() {
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black"></div>
 
-      {/* Contact Form */}
+      {/* Sign In Form */}
       <div className="relative z-10 w-full max-w-md px-4 py-12">
         <div className="p-8 rounded-lg shadow-lg bg-black/80 backdrop-blur-sm">
           <h2 className="text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500">
-            Contact Us
+            Sign In
           </h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="name" className="text-gray-300">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full p-3 mt-2 text-white bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Enter your name"
-                required
-              />
-            </div>
+          <form onSubmit={handleSignIn} className="space-y-4">
             <div>
               <label htmlFor="email" className="text-gray-300">
                 Email
@@ -72,29 +57,38 @@ export default function Contact() {
               />
             </div>
             <div>
-              <label htmlFor="message" className="text-gray-300">
-                Message
+              <label htmlFor="password" className="text-gray-300">
+                Password
               </label>
-              <textarea
-                id="message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                className="w-full p-3 mt-2 text-white bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none"
-                placeholder="Enter your message"
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full p-3 mt-2 text-white bg-gray-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your password"
                 required
-              ></textarea>
+              />
             </div>
             <button
               type="submit"
               className="w-full p-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition duration-300"
             >
-              Send Message
+              Sign In
             </button>
           </form>
+          <div className="mt-4 text-center">
+            <p className="text-gray-300">
+              Don't have an account?{" "}
+              <Link href="/sign-up" className="text-blue-400 hover:text-blue-500">
+                Sign Up
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <Footer />
+      <Footer />
     </div>
   )
 }

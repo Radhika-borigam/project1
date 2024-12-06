@@ -8,6 +8,7 @@ import WhatWeOffer from "@/components/WhatWeOffer";
 import WhyAreWeUnique from "@/components/WhyAreWeUnique";
 import Footer from "@/components/Footer";
 import CardsSection from "@/components/CardsSection";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -17,17 +18,18 @@ export default function Home() {
 
       {/* Hero Section */}
       <HeroSection
-        title="Next-Level Web Solutions"
+        title="Next-Level IT Solutions"
         subTitle="Experience Innovation"
         description="Empowering businesses with cutting-edge design and development."
         backgroundImage="/assets/custom-background.png" // Custom image
       />
 
       {/* Projects Section */}
-      <ProjectsSection />
+      {/* <ProjectsSection /> */}
       <CardsSection/>
       <WhatWeOffer />
       <WhyAreWeUnique />
+      <ContactForm />
       <Footer/>
     </div>
   );

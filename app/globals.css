@@ -80,3 +80,54 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Keyframes for animated shapes */
+@keyframes move-shape-1 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(40px, -30px); }
+  50% { transform: translate(-20px, 50px); }
+  75% { transform: translate(30px, 20px); }
+}
+
+@keyframes move-shape-2 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-50px, 30px); }
+  50% { transform: translate(40px, -40px); }
+  75% { transform: translate(-30px, 60px); }
+}
+
+@keyframes move-shape-3 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-70px, 20px); }
+  50% { transform: translate(60px, 30px); }
+  75% { transform: translate(-50px, -30px); }
+}
+
+@keyframes move-shape-4 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(40px, -70px); }
+  50% { transform: translate(-80px, 20px); }
+  75% { transform: translate(20px, 50px); }
+}
+
+@keyframes move-shape-5 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-30px, 40px); }
+  50% { transform: translate(50px, -20px); }
+  75% { transform: translate(-40px, 60px); }
+}
+
+@keyframes move-shape-6 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(60px, -40px); }
+  50% { transform: translate(-50px, 30px); }
+  75% { transform: translate(40px, -20px); }
+}
+
+/* Apply animations to the shapes */
+.animate-move-shape-1 { animation: move-shape-1 8s infinite ease-in-out; }
+.animate-move-shape-2 { animation: move-shape-2 10s infinite ease-in-out; }
+.animate-move-shape-3 { animation: move-shape-3 12s infinite ease-in-out; }
+.animate-move-shape-4 { animation: move-shape-4 14s infinite ease-in-out; }
+.animate-move-shape-5 { animation: move-shape-5 16s infinite ease-in-out; }
+.animate-move-shape-6 { animation: move-shape-6 18s infinite ease-in-out; }
