@@ -43,6 +43,11 @@ const ProjectsSection = () => {
     );
   };
 
+  const cardVariants = {
+    hidden: { opacity: 0, x: -50 }, // Start off-screen to the left
+    visible: { opacity: 1, x: 0 },  // Animate to the center
+  };
+
   return (
     <div
       className="relative px-4 mt-20 bg-cover bg-center"
@@ -51,7 +56,7 @@ const ProjectsSection = () => {
         padding: "30px 0",
       }}
     >
-      <motion.div variants={textVariant()}>
+      <motion.div variants={textVariant()} initial="hidden" animate="visible">
         <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 font-black text-[30px]">
           Services
         </h2>
@@ -73,10 +78,11 @@ const ProjectsSection = () => {
             {visibleProjects.map((project, index) => (
               <motion.div
                 key={`project-${index}`}
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 50 }}
-                transition={{ type: "spring", duration: 0.5 }}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={cardVariants}
+                transition={{ type: "spring", duration: 0.5, delay: index * 0.2 }} // Staggered animations
               >
                 <ProjectCard index={index} {...project} />
               </motion.div>
