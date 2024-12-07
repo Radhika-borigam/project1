@@ -1,6 +1,6 @@
 import React from "react";
 import UniqueFeatureCard from "./UniqueFeatureCard";
-import Link from "next/link";
+
 
 interface Feature {
   title: string;
