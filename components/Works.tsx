@@ -42,7 +42,7 @@ const Works: React.FC = () => {
       {/* Description */}
       <div className="w-full flex">
         <motion.p
-          variants={fadeIn("up", "", 0.1, 1)}
+          variants={fadeIn("up", "tween", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
           Following projects showcase my skills and experience through
