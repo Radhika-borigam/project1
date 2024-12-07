@@ -67,39 +67,36 @@ const ProjectsSection = () => {
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
-            className={`text-white bg-secondary rounded-full p-3 ${
+            className={text-white bg-secondary rounded-full p-3 ${
               currentIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
-            }`}
+            }}
           >
             {"<"}
           </button>
 
           <div className="flex justify-center gap-7 overflow-hidden w-full">
-            {visibleProjects.map((project, localIndex) => {
-              const globalIndex = currentIndex + localIndex; // Calculate the global index
-              return (
-                <motion.div
-                  key={`project-${globalIndex}`}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  variants={cardVariants}
-                  transition={{ type: "spring", duration: 0.5, delay: localIndex * 0.2 }} // Staggered animations
-                >
-                  <ProjectCard index={globalIndex} {...project} />
-                </motion.div>
-              );
-            })}
+            {visibleProjects.map((project, index) => (
+              <motion.div
+                key={project-${index}}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={cardVariants}
+                transition={{ type: "spring", duration: 0.5, delay: index * 0.2 }} // Staggered animations
+              >
+                <ProjectCard index={index} {...project} />
+              </motion.div>
+            ))}
           </div>
 
           <button
             onClick={handleNext}
             disabled={currentIndex + cardsPerPage >= projects.length}
-            className={`text-white bg-secondary rounded-full p-3 ${
+            className={text-white bg-secondary rounded-full p-3 ${
               currentIndex + cardsPerPage >= projects.length
                 ? "opacity-50 cursor-not-allowed"
                 : ""
-            }`}
+            }}
           >
             {">"}
           </button>
