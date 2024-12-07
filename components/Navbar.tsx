@@ -1,46 +1,45 @@
-'use client'
+'use client';
 
-import React, { useState, useEffect, useRef } from "react"
-import Link from "next/link"
-import { ChevronDown, Menu, X } from 'lucide-react'
+import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { ChevronDown, Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
-  const menuRef = useRef<HTMLDivElement>(null)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 0)
+    const handleScroll = () => setIsScrolled(window.scrollY > 0);
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setDropdownOpen(false)
+        setDropdownOpen(false);
       }
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setMenuOpen(false)
+        setMenuOpen(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    document.addEventListener("mousedown", handleClickOutside)
+    window.addEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
-  const handleSignOut = () => setIsLoggedIn(false)
-  const handleSignIn = () => setIsLoggedIn(true)
+  const handleSignOut = () => setIsLoggedIn(false);
 
   const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
     <Link href={href} className="text-gray-300 hover:text-blue-400 group">
       {children}
       <span className="block h-0.5 bg-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
     </Link>
-  )
+  );
 
   const features = [
     { name: "Digital Marketing", href: "/services/digital-marketing" },
@@ -48,7 +47,7 @@ const Navbar: React.FC = () => {
     { name: "IT Services", href: "/services/it-services" },
     { name: "DevOps Solutions", href: "/services/devops-solutions" },
     { name: "Custom Software Development", href: "/services/custom-software" },
-  ]
+  ];
 
   return (
     <nav
@@ -167,8 +166,7 @@ const Navbar: React.FC = () => {
         </div>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
-
+export default Navbar;

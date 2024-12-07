@@ -1,4 +1,4 @@
-"use client"; // Enables client-side rendering in Next.js
+'use client'; // Enables client-side rendering in Next.js
 
 import Image from "next/image"; // Next.js optimized image component
 import React, { FC } from "react";
@@ -8,21 +8,19 @@ interface HeroSectionProps {
   title?: string; // Optional title prop
   subTitle?: string; // Optional subtitle prop
   description?: string; // Optional description prop
-  backgroundImage?: string; // Optional background image path
 }
 
 const HeroSection: FC<HeroSectionProps> = ({
   title = "UI/UX, Web Development, Digital Marketing",
   subTitle = "At Y9K",
   description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste beatae molestias voluptate impedit repellat porro doloremque quasi itaque veritatis?",
-  backgroundImage = "/ll.png", // Updated path to match the file name in `public`
 }) => {
   return (
     <div className="relative flex items-center justify-center h-screen bg-black overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-x-0 bottom-0 h-full w-full">
         <Image
-          src= "/ll.png"
+          src="/ll.png" // Static background image
           alt="Background"
           layout="fill"
           objectFit="cover"

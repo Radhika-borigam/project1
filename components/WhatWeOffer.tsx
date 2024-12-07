@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import styles from "../styles/WhatWeOffer.module.css";
+import Image from "next/image";
 
 const services = [
   {
@@ -80,9 +80,11 @@ const WhatWeOffer: React.FC = () => {
 
             {/* Image/Icon */}
             <div className="flex-1 flex justify-center items-center">
-              <img
+              <Image
                 src={service.icon}
                 alt={service.title}
+                width={400}
+                height={300}
                 className="max-w-full h-auto rounded-lg shadow-md"
               />
             </div>

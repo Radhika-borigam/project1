@@ -1,15 +1,14 @@
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const ProjectCard = ({
-  index,
   name,
   description,
   tags,
   image,
   source_code_link,
 }: {
-  index: number;
   name: string;
   description: string;
   tags: { name: string; color: string }[];
@@ -47,8 +46,8 @@ const ProjectCard = ({
       <div
         className="relative w-full h-[230px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
         style={{
-          background: "linear-gradient(to right, #ffffff, #001f4d)", // Thin white to dark blue gradient
-          padding: "2px", // Very thin border
+          background: "linear-gradient(to right, #ffffff, #001f4d)",
+          padding: "2px",
           borderRadius: "16px",
         }}
       >
@@ -66,9 +65,11 @@ const ProjectCard = ({
           onClick={() => window.open(source_code_link, "_blank")}
         >
           <div className="bg-gradient-to-r from-blue-500 to-purple-500 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer">
-            <img
+            <Image
               src="/images/github.png"
               alt="GitHub"
+              width={20}
+              height={20}
               className="w-1/2 h-1/2 object-contain"
             />
           </div>

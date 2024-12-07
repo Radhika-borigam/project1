@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
-import ProjectsSection from "@/components/ProjectsSection";
+
 import WhatWeOffer from "@/components/WhatWeOffer";
 import WhyAreWeUnique from "@/components/WhyAreWeUnique";
 import Footer from "@/components/Footer";
