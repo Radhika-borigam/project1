@@ -75,18 +75,21 @@ const ProjectsSection = () => {
           </button>
 
           <div className="flex justify-center gap-7 overflow-hidden w-full">
-            {visibleProjects.map((project, index) => (
-              <motion.div
-                key={`project-${index}`}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                variants={cardVariants}
-                transition={{ type: "spring", duration: 0.5, delay: index * 0.2 }} // Staggered animations
-              >
-                <ProjectCard index={index} {...project} />
-              </motion.div>
-            ))}
+            {visibleProjects.map((project, localIndex) => {
+              const globalIndex = currentIndex + localIndex; // Calculate the global index
+              return (
+                <motion.div
+                  key={`project-${globalIndex}`}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={cardVariants}
+                  transition={{ type: "spring", duration: 0.5, delay: localIndex * 0.2 }} // Staggered animations
+                >
+                  <ProjectCard index={globalIndex} {...project} />
+                </motion.div>
+              );
+            })}
           </div>
 
           <button
