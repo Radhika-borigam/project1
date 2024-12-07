@@ -7,7 +7,8 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpenDesktop, setDropdownOpenDesktop] = useState(false);
+  const [dropdownOpenMobile, setDropdownOpenMobile] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -16,7 +17,7 @@ const Navbar: React.FC = () => {
     const handleScroll = () => setIsScrolled(window.scrollY > 0);
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setDropdownOpen(false);
+        setDropdownOpenDesktop(false);
       }
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setMenuOpen(false);
@@ -68,11 +69,11 @@ const Navbar: React.FC = () => {
             <div className="relative group" ref={dropdownRef}>
               <button
                 className="text-gray-300 hover:text-blue-400 flex items-center group"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
+                onClick={() => setDropdownOpenDesktop(!dropdownOpenDesktop)}
               >
                 Services <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              {dropdownOpen && (
+              {dropdownOpenDesktop && (
                 <div className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-black ring-1 ring-black ring-opacity-5">
                   <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                     {features.map((feature) => (
@@ -137,17 +138,18 @@ const Navbar: React.FC = () => {
             <div className="relative">
               <button
                 className="w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:bg-blue-500 hover:text-white rounded-md flex justify-between items-center"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
+                onClick={() => setDropdownOpenMobile(!dropdownOpenMobile)}
               >
                 Features
-                <ChevronDown className={`h-4 w-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`h-4 w-4 transition-transform ${dropdownOpenMobile ? 'rotate-180' : ''}`} />
               </button>
-              {dropdownOpen && (
+              {dropdownOpenMobile && (
                 <div className="pl-4">
                   {features.map((feature) => (
                     <Link
                       key={feature.name}
                       href={feature.href}
+                      onClick={() => setMenuOpen(false)} // Close menu after clicking a link
                       className="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-blue-500 hover:text-white rounded-md"
                     >
                       {feature.name}

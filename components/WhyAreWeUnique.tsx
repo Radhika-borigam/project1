@@ -1,7 +1,14 @@
 import React from "react";
 import UniqueFeatureCard from "./UniqueFeatureCard";
+import Link from "next/link";
 
-const features = [
+interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const features: Feature[] = [
   {
     title: "Technical Skills",
     description:
@@ -11,7 +18,7 @@ const features = [
   {
     title: "Professionalism",
     description:
-      "You can count on us for timely delivery and the superior quality of provided services. To maximize our clients’ potential, we focus on producing business value every single day.",
+      "You can count on us for timely delivery and the superior quality of provided services. To maximize our clients' potential, we focus on producing business value every single day.",
     icon: "📂",
   },
   {
@@ -23,15 +30,19 @@ const features = [
   {
     title: "Seamless Sales Process",
     description:
-      "Experience a seamless sales journey with us. We prioritize our partners’ needs, promptly addressing inquiries and offering comprehensive guidance at every step.",
+      "Experience a seamless sales journey with us. We prioritize our partners' needs, promptly addressing inquiries and offering comprehensive guidance at every step.",
     icon: "🤝",
   },
 ];
 
 const WhyAreWeUnique: React.FC = () => {
   return (
-    <section className={`${styles.container} bg-gradient-to-b from-gray-900 via-black to-gray-800 py-12`}>
-      <h2 className="text-center text-3xl sm:text-4xl font-bold text-white mb-6">Why are we unique?</h2>
+    <section className="bg-gradient-to-b from-[#0f172a] via-[#0f172a] to-[#0f172a] py-12">
+      <h2 className="text-center text-3xl sm:text-4xl font-bold mb-6">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500">
+          Why are we unique?
+        </span>
+      </h2>
       <p className="text-center text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto mb-12 px-4">
         We have a unique vision and values guiding us in a specific direction.
         Our experience and commitment to operational excellence guarantee
