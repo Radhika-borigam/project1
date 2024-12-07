@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../styles/UniqueFeatureCard.module.css";
 
 interface UniqueFeatureCardProps {
   title: string;
@@ -13,10 +12,10 @@ const UniqueFeatureCard: React.FC<UniqueFeatureCardProps> = ({
   icon,
 }) => {
   return (
-    <div className={styles.card}>
-      <div className={styles.icon}>{icon}</div>
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.description}>{description}</p>
+    <div className="bg-gradient-to-r from-blue-900 via-blue-700 to-pink-500 rounded-lg p-8 shadow-lg transition-transform transform hover:-translate-y-2 hover:shadow-2xl">
+      <div className="text-yellow-400 text-4xl mb-4">{icon}</div>
+      <h3 className="text-white text-xl font-bold mb-2">{title}</h3>
+      <p className="text-gray-300 text-base">{description}</p>
     </div>
   );
 };
