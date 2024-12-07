@@ -1,9 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-//import { textVariant, fadeIn } from "../utils/motion";
-import { textVariant,fadeIn } from "@/utils/motion";
+import { textVariant, fadeIn } from "@/utils/motion";
 import ProjectCard from "./ProjectCard";
 
+const projects = [
+  { title: "Project 1", description: "Description of Project 1" },
+  { title: "Project 2", description: "Description of Project 2" },
+  { title: "Project 3", description: "Description of Project 3" },
+];
 
 const Works: React.FC = () => {
   return (
@@ -19,7 +23,7 @@ const Works: React.FC = () => {
 
       <div className="w-full flex">
         <motion.p
-          variants={fadeIn("up", "tween", 0.1, 1)}
+          variants={fadeIn("up", "tween", 0.1, 1)}  // Use "tween" instead of empty string
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
           Following projects showcase my skills and experience through
