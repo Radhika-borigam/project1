@@ -20,8 +20,7 @@ export default function Home() {
       <HeroSection
         title="Next-Level IT Solutions"
         subTitle="Experience Innovation"
-        description="Empowering businesses with cutting-edge design and development."
-        backgroundImage="/assets/custom-background.png" // Custom image
+        description="Empowering businesses with cutting-edge design and development."// Custom image
       />
 
       {/* Projects Section */}
