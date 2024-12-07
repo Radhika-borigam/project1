@@ -8,12 +8,14 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  index, // Add the index prop
 }: {
   name: string;
   description: string;
   tags: { name: string; color: string }[];
   image: string;
   source_code_link: string;
+  index: number; // Add index type
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -77,7 +79,10 @@ const ProjectCard = ({
       </div>
 
       <div className="mt-5 group-hover:scale-105 transition-transform">
-        <h3 className="text-white text-[24px] font-extrabold">{name}</h3>
+        {/* Display index optionally */}
+        <h3 className="text-white text-[24px] font-extrabold">
+          {index + 1}. {name}
+        </h3>
         <p className="mt-2 text-gray-400 text-[14px]">{description}</p>
       </div>
 

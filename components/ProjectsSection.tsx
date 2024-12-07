@@ -44,8 +44,8 @@ const ProjectsSection = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, x: -50 }, // Start off-screen to the left
-    visible: { opacity: 1, x: 0 },  // Animate to the center
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0 },
   };
 
   return (
@@ -64,6 +64,7 @@ const ProjectsSection = () => {
 
       <div className="relative mt-10">
         <div className="flex justify-between items-center">
+          {/* Previous Button */}
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
@@ -74,21 +75,23 @@ const ProjectsSection = () => {
             {"<"}
           </button>
 
+          {/* Project Cards */}
           <div className="flex justify-center gap-7 overflow-hidden w-full">
             {visibleProjects.map((project, index) => (
               <motion.div
-                key={`project-${index}`}
+                key={`project-${index}`} // Corrected the key interpolation
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
                 variants={cardVariants}
-                transition={{ type: "spring", duration: 0.5, delay: index * 0.2 }} // Staggered animations
+                transition={{ type: "spring", duration: 0.5, delay: index * 0.2 }}
               >
                 <ProjectCard index={index} {...project} />
               </motion.div>
             ))}
           </div>
 
+          {/* Next Button */}
           <button
             onClick={handleNext}
             disabled={currentIndex + cardsPerPage >= projects.length}

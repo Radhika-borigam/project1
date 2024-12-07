@@ -1,6 +1,5 @@
 import React from "react";
 import UniqueFeatureCard from "./UniqueFeatureCard";
-import styles from "../styles/WhyAreWeUnique.module.css";
 
 const features = [
   {
@@ -31,12 +30,8 @@ const features = [
 
 const WhyAreWeUnique: React.FC = () => {
   return (
-    <section
-      className={`${styles.container} bg-gradient-to-b from-gray-900 via-black to-gray-800 py-12`}
-    >
-      <h2 className="text-center text-3xl sm:text-4xl font-bold text-white mb-6">
-        Why are we unique?
-      </h2>
+    <section className={`${styles.container} bg-gradient-to-b from-gray-900 via-black to-gray-800 py-12`}>
+      <h2 className="text-center text-3xl sm:text-4xl font-bold text-white mb-6">Why are we unique?</h2>
       <p className="text-center text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto mb-12 px-4">
         We have a unique vision and values guiding us in a specific direction.
         Our experience and commitment to operational excellence guarantee
