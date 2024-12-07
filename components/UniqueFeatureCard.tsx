@@ -2,7 +2,6 @@ import React from "react";
 import styles from "../styles/UniqueFeatureCard.module.css";
 
 interface UniqueFeatureCardProps {
-  index: number;
   title: string;
   description: string;
   icon: React.ReactNode;
